@@ -115,6 +115,27 @@ Docker images hosted on [open-event-frontend repository](https://cloud.docker.co
 - When you make very minor changes to a PR of yours (like for example fixing a failing Travis build or some small style corrections or minor changes requested by reviewers) make sure you squash your commits afterward so that you don't have an absurd number of commits for a very small fix. (Learn how to squash at [https://davidwalsh.name/squash-commits-git](https://davidwalsh.name/squash-commits-git) )
 - When you're submitting a PR for a UI-related issue, it would be really awesome if you add a screenshot of your change or a link to a deployment where it can be tested out along with your PR. It makes it very easy for the reviewers and you'll also get reviews quicker.
 
+> Note:
+>
+> If you are using nvm and face the `pre-commit: not found` error, you can fix it by editing the file:
+> 
+> `.git/hooks/pre-commit`
+>
+> to include this line:
+>
+> `. $HOME/.nvm/nvm.sh`
+> 
+> For example:
+> ```
+> #!/bin/bash
+> . $HOME/.nvm/nvm.sh
+> ./node_modules/pre-commit/hook
+> RESULT=$?
+> [ $RESULT -ne 0 ] && exit 1
+> exit 0
+> ```
+> 
+
 ### Feature Requests and Bug Reports
 
 When you file a feature request or when you are submitting a bug report to the [issue tracker](https://github.com/fossasia/open-event-frontend/issues), make sure you add steps to reproduce it. Especially if that bug is some weird/rare one.
